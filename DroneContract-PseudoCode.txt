@@ -1,0 +1,47 @@
+Define Class DroneContract:
+
+    Define function registerDrone(context, droneId):
+    
+        Get droneState from the blockchain using droneId
+        If droneState exists:
+            Print error message "Drone already exists"
+            Return null
+        End If
+
+        Create new Drone object with droneId
+        Convert Drone object to JSON
+        Store the JSON drone data to the blockchain with key as droneId
+
+        Return Drone object
+    End function
+
+    Define function recordSurveillanceData(context, droneId, surveillanceData):
+    
+        Get droneState from the blockchain using droneId
+        If droneState does not exist:
+            Print error message "Drone does not exist"
+            Return null
+        End If
+
+        Convert droneState from JSON to Drone object
+        Add surveillanceData to Drone object
+        Convert updated Drone object to JSON
+        Update the blockchain with new JSON drone data with key as droneId
+
+        Return Drone object
+    End function
+
+    Define function getSurveillanceData(context, droneId):
+
+        Get droneState from the blockchain using droneId
+        If droneState does not exist:
+            Print error message "Drone does not exist"
+            Return null
+        End If
+
+        Convert droneState from JSON to Drone object
+
+        Return Drone object
+    End function
+
+End Class
